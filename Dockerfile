@@ -6,5 +6,7 @@ RUN npm install -g phantomjs
 
 RUN yum -y install perl perl-core wget
 RUN wget -O - https://cpanmin.us | perl - App::cpanminus
-RUN cpanm Wight
+WORKDIR /work
+COPY cpanfile /work/cpanfile
+RUN cpanm --installdeps .
 
