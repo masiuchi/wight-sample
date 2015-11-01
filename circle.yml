@@ -13,5 +13,5 @@ dependencies:
 
 test:
   override:
-    - docker run -v $PWD:/work -w /work bash -c "prove"
+    - docker run -v $PWD:/work -w /work wight bash -c "prove"
 
