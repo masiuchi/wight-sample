@@ -1,0 +1,17 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/docker"
+
+  override:
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker build -t wight .
+    - mkdir -p ~/docker; docker save wight > ~/docker/image.tar
+
+test:
+  override:
+    - docker run -v $PWD:/work -w /work bash -c "prove"
+
