@@ -23,9 +23,11 @@ my $app = sub {
 
 describe 'my site' => sub {
     my $wight;
-    $wight = Test::Wight->new;
-    $wight->spawn_psgi($app);
-    $wight->visit('/');
+    before all => sub {
+        $wight = Test::Wight->new;
+        $wight->spawn_psgi($app);
+        $wight->visit('/');
+    };
     describe 'title' => sub {
         it 'should be "sample app"' => sub {
             is( $wight->evaluate('document.title'), 'sample app' );
