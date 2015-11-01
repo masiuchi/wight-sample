@@ -1,4 +1,4 @@
-langauge: perl
+language: perl
 sudo: false
 
 install:
