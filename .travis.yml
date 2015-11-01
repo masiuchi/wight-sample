@@ -1,6 +1,11 @@
 language: perl
 sudo: false
 
+cache:
+  directories:
+    - ${HOME}/perl5/perlbrew/perls/${TRAVIS_PERL_VERSION}/bin
+    - ${HOME}/perl5/perlbrew/perls/${TRAVIS_PERL_VERSION}/lib/site_perl
+
 install:
   - cpanm --installdeps .
 
