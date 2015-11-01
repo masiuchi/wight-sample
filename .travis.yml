@@ -1,0 +1,9 @@
+langauge: perl
+sudo: false
+
+install:
+  - cpanm --installdeps .
+
+script:
+  - prove
+
